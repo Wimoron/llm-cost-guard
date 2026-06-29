@@ -1,7 +1,6 @@
 # llm-cost-guard 🛡️
 
 [![npm](https://img.shields.io/npm/v/@wimoron/llm-cost-guard)](https://www.npmjs.com/package/@wimoron/llm-cost-guard)
-[![npm downloads](https://img.shields.io/npm/dm/@wimoron/llm-cost-guard)](https://www.npmjs.com/package/@wimoron/llm-cost-guard)
 [![license](https://img.shields.io/npm/l/@wimoron/llm-cost-guard)](./LICENSE)
 [![tests](https://img.shields.io/badge/tests-28%20passing-brightgreen)](#run-tests)
 
