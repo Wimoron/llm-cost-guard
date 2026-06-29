@@ -1,5 +1,10 @@
 # llm-cost-guard 🛡️
 
+[![npm](https://img.shields.io/npm/v/@wimoron/llm-cost-guard)](https://www.npmjs.com/package/@wimoron/llm-cost-guard)
+[![npm downloads](https://img.shields.io/npm/dm/@wimoron/llm-cost-guard)](https://www.npmjs.com/package/@wimoron/llm-cost-guard)
+[![license](https://img.shields.io/npm/l/@wimoron/llm-cost-guard)](./LICENSE)
+[![tests](https://img.shields.io/badge/tests-28%20passing-brightgreen)](#run-tests)
+
 Track LLM costs, set spending limits, and get alerts — in your terminal, browser, or AI editor.
 
 **One command to install. One line to start tracking.**
@@ -9,7 +14,7 @@ Track LLM costs, set spending limits, and get alerts — in your terminal, brows
 ## Install
 
 ```bash
-npm install llm-cost-guard
+npm install @wimoron/llm-cost-guard
 ```
 
 That's it. No config files. No API keys. Works immediately.
@@ -19,7 +24,7 @@ That's it. No config files. No API keys. Works immediately.
 ## Start the dashboard
 
 ```bash
-npx llm-cost-guard start
+npx @wimoron/llm-cost-guard start
 ```
 
 Opens a live dashboard at **http://localhost:47821** in your browser.
@@ -32,7 +37,7 @@ Add one line to your app:
 
 **OpenAI:**
 ```js
-import { patch } from 'llm-cost-guard';
+import { patch } from '@wimoron/llm-cost-guard';
 import OpenAI from 'openai';
 
 const openai = patch(new OpenAI());
@@ -46,7 +51,7 @@ const res = await openai.chat.completions.create({
 
 **Anthropic:**
 ```js
-import { patch } from 'llm-cost-guard';
+import { patch } from '@wimoron/llm-cost-guard';
 import Anthropic from '@anthropic-ai/sdk';
 
 const anthropic = patch(new Anthropic());
@@ -80,7 +85,7 @@ curl -X POST http://localhost:47821/api/track \
 
 From code:
 ```js
-import { addBudget } from 'llm-cost-guard';
+import { addBudget } from '@wimoron/llm-cost-guard';
 
 // Block calls when alice spends more than $2/day
 addBudget({ scope: 'user', scopeId: 'alice', limitUSD: 2.00, windowHours: 24, hardBlock: true });
@@ -118,7 +123,7 @@ try {
 
 **Step 1 — Connect your editor:**
 ```bash
-npx llm-cost-guard setup
+npx @wimoron/llm-cost-guard setup
 ```
 
 This auto-detects installed editors and writes the MCP config for each one.
@@ -146,7 +151,7 @@ Add this to your editor's MCP config file:
   "mcpServers": {
     "llm-cost-guard": {
       "command": "npx",
-      "args": ["llm-cost-guard", "mcp"]
+      "args": ["@wimoron/llm-cost-guard", "mcp"]
     }
   }
 }
@@ -165,14 +170,14 @@ Add this to your editor's MCP config file:
 ```toml
 [mcp_servers.llm-cost-guard]
 command = "npx"
-args    = ["llm-cost-guard", "mcp"]
+args    = ["@wimoron/llm-cost-guard", "mcp"]
 ```
 
 ---
 
 ## Dashboard
 
-Open at **http://localhost:47821** or run `npx llm-cost-guard start`.
+Open at **http://localhost:47821** or run `npx @wimoron/llm-cost-guard start`.
 
 | Tab | What you see |
 |---|---|
@@ -199,10 +204,10 @@ Unknown models fall back to a conservative price estimate.
 ## CLI commands
 
 ```bash
-npx llm-cost-guard start    # Start dashboard (opens browser automatically)
-npx llm-cost-guard setup    # Auto-connect to all detected editors
-npx llm-cost-guard status   # Check if server is running
-npx llm-cost-guard mcp      # Start MCP mode (used by editors internally)
+npx @wimoron/llm-cost-guard start    # Start dashboard (opens browser automatically)
+npx @wimoron/llm-cost-guard setup    # Auto-connect to all detected editors
+npx @wimoron/llm-cost-guard status   # Check if server is running
+npx @wimoron/llm-cost-guard mcp      # Start MCP mode (used by editors internally)
 ```
 
 ---
@@ -235,7 +240,7 @@ import {
   ackAlert,       // ackAlert(id) or ackAlert('__all__')
 
   startServer,    // start the HTTP server programmatically
-} from 'llm-cost-guard';
+} from '@wimoron/llm-cost-guard';
 ```
 
 ---
